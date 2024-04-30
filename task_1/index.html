@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перегляд фотографій</title>
+</head>
+<body>
+    <h1>Перегляд фотографій</h1>
+    <form>
+        <label for="photos">Виберіть фотографію:</label>
+        <select id="photos" onchange="showPhoto(this)">
+            <option value="forest">Ліс</option>
+            <option value="mountain">Гори</option>
+            <option value="lake">Озеро</option>
+            <option value="road">Дорога</option>
+            <option value="flowers">Квіти</option>
+        </select>
+    </form>
+    <img id="photo" src="" alt="Фотографія">
+
+    <script>
+        var photos = {};
+        photos["forest"] = new Image(400, 300);
+        photos["forest"].src = "images/forest.jpg";
+        photos["mountain"] = new Image(400, 300);
+        photos["mountain"].src = "images/mountain.jpg";
+        photos["lake"] = new Image(400, 300);
+        photos["lake"].src = "images/lake.jpg";
+        photos["road"] = new Image(400, 300);
+        photos["road"].src = "images/road.jpg";
+        photos["flowers"] = new Image(400, 300);
+        photos["flowers"].src = "images/flowers.jpg";
+
+        function showPhoto(select) {
+            var selectedPhoto = select.options[select.selectedIndex].value;
+            document.getElementById("photo").src = photos[selectedPhoto].src;
+        }
+    </script>
+</body>
+</html>
