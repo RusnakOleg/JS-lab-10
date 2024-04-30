@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еліпс (SVG)</title>
+</head>
+<body>
+    <h1>Еліпс (SVG)</h1>
+    <label for="majorAxis">Велика півось:</label>
+    <input type="number" id="majorAxis" value="100">
+    <br>
+    <label for="minorAxis">Мала півось:</label>
+    <input type="number" id="minorAxis" value="50">
+    <br>
+    <button onclick="drawEllipseSVG()">Намалювати</button>
+    <br>
+    <svg id="svg" width="500" height="400"></svg>
+
+    <script>
+        function drawEllipseSVG() {
+            var a = Number(document.getElementById('majorAxis').value);
+            var b = Number(document.getElementById('minorAxis').value);
+            var svg = document.getElementById('svg');
+            svg.innerHTML = `<ellipse cx="250" cy="200" rx="${a}" ry="${b}" fill="none" stroke="black" />`;
+        }
+    </script>
+</body>
+</html>
